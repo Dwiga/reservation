@@ -79,3 +79,12 @@ def create_book(form: Book, user: Users):
             date=date,
         )
         order_repo.create(order_data)
+
+
+def approve_order(order_id: str):
+    order_repo = OrderRepository()
+    orders = order_repo.retrieve_by_order(order_id)
+
+    for order in orders:
+        order.approved = True
+        order_repo.update(order)

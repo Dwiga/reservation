@@ -31,7 +31,7 @@
 # Application docs
 ## Buy a ticket
     - I assume that every table has 2 seats.
-    - Once customer buy a ticket, they will have random seat
+    - Once customer buy a ticket, they will have random seat (using numpy library to make this happen)
     - I assume customer only eat 1 our, so when another customer buy a ticket in different hour, the previous customer's seat will be available
     - I assume they come in a fix hour, (1-24)
     - I assume, the price of the ticket is only 50% (cheaper) than 1 table
@@ -49,5 +49,6 @@
 ## Bad connection problem
     - I assume that the internet problem only happens to restaurant's intenet cable
     - if that happens, I suggest to use 3rd parti API (i.e Telegram API)
+    - this Telegram API also supported python library, so we can put the hook inside this app
     - using this approach, we can use mobile connection to access or send data with minimum ammount of data (only text data, no UI needed)
     

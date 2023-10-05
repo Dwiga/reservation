@@ -13,4 +13,7 @@ def database():
         os.getenv("DB_PORT"),
         os.getenv("DB_NAME"),
     )
-#     postgresql://dwiga:@localhost/backbase
+
+
+def telegram_token():
+    return os.getenv("TELEGRAM_TOKEN")
