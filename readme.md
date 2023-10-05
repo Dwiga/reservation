@@ -51,4 +51,5 @@
     - if that happens, I suggest to use 3rd parti API (i.e Telegram API)
     - this Telegram API also supported python library, so we can put the hook inside this app
     - using this approach, we can use mobile connection to access or send data with minimum ammount of data (only text data, no UI needed)
+    - `python bot.py` to run the bot
     
