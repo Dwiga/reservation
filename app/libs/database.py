@@ -28,13 +28,8 @@ class CRUD:
         query = connection.exec(statement)
         return query.first()
 
-    def fetch_by_uid(self, uid: str):
+    def fetch_by_id(self, uid: str):
         statement = select(self.TABLE).where(self.TABLE.uid == uid)
-        query = connection.exec(statement)
-        return query.first()
-
-    def fetch_by_email(self, email: str):
-        statement = select(self.TABLE).where(self.TABLE.email == email)
         query = connection.exec(statement)
         return query.first()
 
