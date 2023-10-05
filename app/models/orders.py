@@ -1,5 +1,5 @@
 from sqlmodel import SQLModel, Field, Relationship, func
-from datetime import datetime
+from datetime import datetime, date
 from typing import Optional
 from app.models.users import Users
 from app.models.tables import Tables
@@ -16,9 +16,10 @@ class Orders(SQLModel, table=True):
     status: int = Field(default=0)
     transaction_code: str = Field(default=None)
     approved: bool = Field(default=False)
-    time: datetime = Field(default=func.now())
     created_at: datetime = Field(default=func.now())
     updated_at: datetime = Field(default=func.now())
+    time: int = Field(default=0)
+    date: datetime = Field(default=func.now())
 
     users: Optional[Users] = Relationship(back_populates="orders")
     tables: Optional[Tables] = Relationship(back_populates="orders")

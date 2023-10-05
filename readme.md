@@ -3,6 +3,7 @@
 
 ## Using poetry
     - `poetry install`
+    - `poetry env use 3.10.5`
     - `poetry shell`
 ## Not using poetry
     - pip install -r requirements.txt

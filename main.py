@@ -2,9 +2,11 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 import time
 from app.routers import auth
+from app.routers import transaction
 
 app = FastAPI()
 app.include_router(auth.auth)
+app.include_router(transaction.transaction)
 
 app.add_middleware(
     CORSMiddleware,

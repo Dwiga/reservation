@@ -16,8 +16,8 @@ class CRUD:
 
     # if you want multiple result sets
     # returns array : [{}]
-    def retrieve(self, uid: str):
-        statement = select(self.TABLE).where(self.TABLE.uid == uid)
+    def retrieve(self, id: int):
+        statement = select(self.TABLE).where(self.TABLE.id == id)
         resultset = connection.exec(statement)
         return resultset.all()
 
@@ -28,8 +28,8 @@ class CRUD:
         query = connection.exec(statement)
         return query.first()
 
-    def fetch_by_id(self, uid: str):
-        statement = select(self.TABLE).where(self.TABLE.uid == uid)
+    def fetch_by_id(self, id: int):
+        statement = select(self.TABLE).where(self.TABLE.id == id)
         query = connection.exec(statement)
         return query.first()
 
@@ -49,3 +49,10 @@ class CRUD:
     def update(model):
         connection.add(model)
         connection.commit()
+
+    @staticmethod
+    def pluck_id(model: list) -> list:
+        ids = []
+        for i in model:
+            ids.append(i.id)
+        return ids

@@ -11,3 +11,4 @@ class Tables(SQLModel, table=True):
     price: float = Field(default=0.0)
 
     seats: Optional[List["Seats"]] = Relationship(back_populates="tables")
+    orders: Optional[List["Orders"]] = Relationship(back_populates="tables")

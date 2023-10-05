@@ -1,6 +1,6 @@
 from sqlmodel import SQLModel, Field, Relationship, func
 from datetime import datetime
-from typing import Optional
+from typing import Optional, List
 from app.models.tables import Tables
 
 
@@ -12,3 +12,4 @@ class Seats(SQLModel, table=True):
     updated_at: datetime = Field(func.now())
 
     tables: Optional[Tables] = Relationship(back_populates="seats")
+    orders: Optional[List["Orders"]] = Relationship(back_populates="seats")
