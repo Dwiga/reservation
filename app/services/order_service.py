@@ -1,7 +1,7 @@
 from datetime import datetime
 from app.libs.database import CRUD
 import numpy
-from app.schemas.transaction_form import Buy
+from app.schemas.transaction_form import Buy, Book
 from app.repositories.order_repository import OrderRepository
 from app.models.users import Users
 from app.models.orders import Orders
@@ -49,3 +49,33 @@ def create_buy(form: Buy, user: Users):
     )
     order_repo.create(order_data)
     return order_data
+
+
+def create_book(form: Book, user: Users):
+    table_repo = TableRepository()
+    seat_repo = SeatRepository()
+    order_repo = OrderRepository()
+
+    date = datetime.strftime(form.date, "%Y-%m-%d")
+    time = form.time
+
+    table: Tables = table_repo.fetch_by_id(form.table)
+    seats = seat_repo.retrieve_by_table(table.id)
+    transaction_code = ''.join(random.choices(string.ascii_uppercase + string.digits, k=20))
+
+    for seat in seats:
+        order_data = Orders(
+            type=1,
+            user_id=user.id,
+            table_id=table.id,
+            seat_id=seat.id,
+            price=table.price,
+            status=0,
+            transaction_code=transaction_code,
+            approved=False,
+            created_at=datetime.now(),
+            updated_at=datetime.now(),
+            time=time,
+            date=date,
+        )
+        order_repo.create(order_data)
