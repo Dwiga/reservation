@@ -1,8 +1,10 @@
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 import time
+from app.routers import auth
 
 app = FastAPI()
+app.include_router(auth.auth)
 
 app.add_middleware(
     CORSMiddleware,

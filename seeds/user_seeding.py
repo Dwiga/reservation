@@ -15,8 +15,8 @@ def user_seeding():
     create_user(admin)
 
     customer = Users(
-        name="John Doe",
-        username="johndoe",
+        name="Jinny Doe",
+        username="jinnydoe",
         password="password",
         role=1,
         created_at=func.now(),
