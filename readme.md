@@ -17,6 +17,9 @@
     - change `DB_PASSWORD` to your database password
     - change `DB_HOST` to your database host
     - change `DB_PORT` to your database port
+
+    - copy `alembic.ini.example` to `alembic.ini`
+    - change `sqlalchemy.url` to your database url
 ## Migrate database
     - `alembic upgrade head`
 
